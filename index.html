@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For My Budu 🌹</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Happy Rose Day, Budu 🌹</h1>
+        <p>You are the most beautiful rose in my life</p>
+        <a href="#message" class="btn">Click for Your Surprise 💌</a>
+        <a href="#propose" class="btn">Next Surprise 💍</a>
+
+    </section>
+
+    <!-- Message Section -->
+    <section id="message" class="section">
+        <h2>For You, My Love ❤️</h2>
+        <p>
+            Budu, just like a rose brings beauty wherever it blooms,
+            you bring happiness, peace, and love into my life.
+            Every moment with you feels special, and every smile of yours
+            makes my world brighter.
+        </p>
+    </section>
+
+    <!-- Memories Section -->
+    <section class="section dark">
+        <h2>Our Little Memories 📸</h2>
+        <div class="gallery">
+    <div class="polaroid">
+        <img src="photo1.jpeg" alt="Memory 1">
+        <p>Us ❤️</p>
+    </div>
+
+    <div class="polaroid">
+        <img src="photo2.jpeg" alt="Memory 2">
+        <p>Our Smile❤️</p>
+    </div>
+
+    <div class="polaroid">
+        <img src="photo3.jpeg" alt="Memory 3">
+        <p>My Budu❤️</p>
+    </div>
+
+    <div class="polaroid">
+        <img src="photo4.jpeg" alt="Memory 4">
+        <p>Us Together❤️</p>
+    </div>
+
+    <div class="polaroid">
+        <img src="photo5.jpeg" alt="Memory 5">
+        <p>My Heart❤️</p>
+    </div>
+</div>
+
+        <p class="note">(*These memories are just the beginning of forever*)</p>
+    </section>
+
+    <!-- Video Love Section -->
+<section class="section video-section">
+    <h2>Us, In Every Moment 🎥❤️</h2>
+    <p>
+        This is not just a video, Budu.
+        It’s my favorite moments, my favorite person,
+        and You are my forever Budu.
+    </p>
+
+    <div class="video-box">
+        <video controls poster="images/photo1.jpg">
+            <source src="love.mp4.mp4" type="video/mp4">
+            <source src="lovee.mp4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+
+
+    <!-- Why You Are Special -->
+    <section class="section">
+        <h2>Why You Are So Special to Me 💖</h2>
+        <ul class="reasons">
+            <li>Your smile heals my bad days</li>
+            <li>Your voice feels like home</li>
+            <li>Your care means everything to me</li>
+            <li>Your presence makes my life complete</li>
+        </ul>
+    </section>
+
+    <!-- Valentine Week -->
+    <section class="section dark">
+        <h2>This Is Just the Beginning 💕</h2>
+        <p>
+            Rose Day is only the first chapter, Budu.
+            This Valentine week is for us,
+            and every day I’ll love you a more and more.
+        </p>
+    </section>
+
+    <!-- Propose Day Section -->
+     <section id="propose" class="section propose-section">
+        <div class="glass-card">
+         <h1 class="chapter-title">💖 Propose Day 💖</h1>
+    ...
+    </div>
+
+<section class="section propose-section">
+    <h2>Budu, This Is From My Heart 💖</h2>
+
+    <p class="propose-text">
+        From the day you came into my life,<br>
+        everything started to feel more alive.<br><br>
+
+        Your smile became my comfort,<br>
+        your voice became my peace,<br>
+        and your presence became my home.<br><br>
+
+        Budu, I don’t want a perfect life,<br>
+        I just want <strong>you</strong> in my every tomorrow.
+    </p>
+
+    <h3 class="question">
+        Will you always stay with me,<br>
+        hold my hand, and choose me<br>
+        every single day? 💍❤️
+    </h3>
+
+    <div class="propose-buttons">
+        <button onclick= "showYes() "  class="yes-btn">YES, ALWAYS 💖</button>
+    </div>
+
+
+
+    <p id="yesMessage" class="yes-message">
+        Thank you for choosing me, Budu 💕<br>
+        I promise to love you, respect you,<br>
+        and stand beside you — always.<br><br>
+        <strong>— Yours, Bibek ❤️</strong>
+    </p>
+
+     <p id="loveText" class="love-text"></p>
+
+
+    <!-- Final Photo-->
+
+    <img id="finalPhoto" src="photo4.jpeg" alt="Forever Us">
+
+    <!--Heart Continer-->
+    <div id="hearts-container"></div>
+
+    <!--Background Music-->
+    <!-- 2 day music system-->
+     <audio id="bgMusic" loop>
+    <source src="love.mp3" type="audio/mp3">
+</audio>
+
+<hr class="section-divider">
+
+
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>With all my love,<br><strong>Yours, Bibek ❤️</strong></p>
+    </footer>
+
+
+   <script>
+function showYes() {
+    // Show message
+    document.getElementById("yesMessage").style.display = "block";
+
+    // Play music
+    document.getElementById("bgMusic").play();
+
+    // Glow effect
+    document.body.classList.add("glow");
+    document.querySelector(".propose-section").classList.add("glow");
+
+    // Show final photo
+    document.getElementById("finalPhoto").style.display = "block";
+
+    // Floating hearts
+    const container = document.getElementById("hearts-container");
+    for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️‍🔥";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+        container.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+    }
+}
+</script>
+
+
+<!--for music-->
+<script>
+const music = document.getElementById("bgMusic");
+music.volume = 0;
+
+function showYes() {
+    // Show message
+    document.getElementById("yesMessage").style.display = "block";
+
+    // Fade in music
+    const music = document.getElementById("bgMusic");
+    music.volume = 0;
+    music.play();
+    let vol = 0;
+    const fadeIn = setInterval(() => {
+        if(vol < 0.6){ vol += 0.01; music.volume = vol; }
+        else { clearInterval(fadeIn); }
+    }, 200);
+
+    // Glow effect
+    document.body.classList.add("glow");
+    document.querySelector(".propose-section").classList.add("glow");
+
+    // Show final photo
+    document.getElementById("finalPhoto").style.display = "block";
+
+    // Floating hearts
+    const container = document.getElementById("hearts-container");
+    for(let i=0; i<30; i++){
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💗";
+        heart.style.left = Math.random()*100 + "vw";
+        heart.style.animationDuration = (3 + Math.random()*3) + "s";
+        container.appendChild(heart);
+        setTimeout(()=> heart.remove(), 6000);
+    }
+
+    // Typing effect + confetti after small delay
+    setTimeout(() => {
+        typeLoveText();
+        createConfetti();
+    }, 1000);
+}
+</script>
+
+
+<script>
+function typeLoveText() {
+    const text = "I LOVE YOU BUDU 💖";
+    const el = document.getElementById("loveText");
+    let i = 0;
+    const speed = 150; // typing speed
+
+    function type() {
+        if (i < text.length) {
+            el.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        } else {
+            el.style.borderRight = 'none';
+        }
+    }
+    type();
+}
+</script>
+
+<script>
+function createConfetti() {
+    const confettiCount = 30;
+    for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.innerHTML = "💖";
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.animationDuration = (3 + Math.random() * 3) + "s";
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 4000);
+    }
+}
+</script>
+
+
+
+</body>
+</html>
