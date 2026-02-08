@@ -8,6 +8,48 @@
 </head>
 <body>
 
+    <!-- Valentine day start -->
+   <section id="valentine-start" class="valentine-start">
+    <div class="valentine-glass">
+        <h1>💖 Valentine Week Begins 💖</h1>
+
+        <p class="valentine-sub">
+            Budu,<br>
+            Today is not just another day…<br>
+            it’s the beginning of our Valentine journey ❤️
+        </p>
+
+        <p class="valentine-line">
+            One week.<br>
+            Many feelings.<br>
+            Only you.
+        </p>
+
+        <div class="valentine-buttons">
+    <button onclick="openLoveIntro()" class="btn outline-btn">
+        Why This Week Is Special 💌
+    </button>
+    <a href="#chocolate" id="surpriseBtn" class="btn">💝 Open you Suprise Budu 💝</a>
+
+</div>
+
+<!-- Mini Love Letter -->
+<div id="loveCard" class="love-card">
+    <p>
+        Budu ❤️<br><br>
+        Valentine week is not about days,<br>
+        it’s about feelings, moments,<br>
+        and choosing each other — again & again 💖
+    </p>
+</div>
+
+<!-- Hearts container -->
+<div id="soft-hearts"></div>
+
+</section>
+
+
+
     <!-- Hero Section -->
     <section class="hero">
         <h1>Happy Rose Day, Budu 🌹</h1>
@@ -159,15 +201,78 @@
 </audio>
 
 <hr class="section-divider">
-
-
 </section>
+
+
+<!-- Chocolate day section-->
+ <section id="chocolate" class="section chocolate-section">
+    <h1 class="chapter-title">🍫 Happy Chocolate Day Budu🍫</h1>
+
+      <!-- Floating petals / glow -->
+    <div id="choco-petals"></div>
+
+    <!--chocolate card-->
+    <div class="choco-card">
+        <p class="choco-text">
+            Budu 🤎<br><br>
+
+Just like chocolate melts softly in your hands,
+my love for you melts deeper in my heart every day.
+
+With every moment, life tastes sweeter,
+because it’s filled with you. 🍫💖
+
+        </p>
+
+        <button id="chocoBtn" class="choco-btn">
+  Get You Chocolate 🍫💖
+</button>
+
+        <p id="chocoMessage" class="choco-message"></p>
+    </div>
+
+    <div id="choco-rain"></div>
+
+  <!-- love letter card-->
+    <div id="chocoLoveCard" class="choco-love-card hidden">
+  <h3>💌 For You</h3>
+  <p>
+    You are my favorite sweetness in this world.  
+    No chocolate can ever be sweeter than you 🤎
+  </p>
+</div>
+</section>
+
 
 
     <!-- Footer -->
     <footer>
         <p>With all my love,<br><strong>Yours, Bibek ❤️</strong></p>
     </footer>
+
+
+
+   <script>
+function openLoveIntro() {
+    // Show love card
+    document.getElementById("loveCard").style.display = "block";
+
+    // Soft hearts animation
+    const container = document.getElementById("soft-hearts");
+
+    for (let i = 0; i < 20; i++) {
+        const heart = document.createElement("div");
+        heart.className = "soft-heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+        container.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+    }
+}
+</script>
+
 
 
    <script>
@@ -281,6 +386,115 @@ function createConfetti() {
         setTimeout(() => confetti.remove(), 4000);
     }
 }
+</script>
+
+<!--for chocolate-->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const chocoBtn = document.getElementById("chocoBtn");
+  const rain = document.getElementById("choco-rain");
+  const card = document.getElementById("chocoLoveCard");
+  const msg = document.getElementById("chocoMessage");
+
+  chocoBtn.addEventListener("click", () => {
+
+    // reset previous drops
+    rain.innerHTML = "";
+    card.classList.remove("show");
+
+    // typing effect
+    const text = "You are sweeter than every chocolate 🍫🤎";
+    msg.innerHTML = "";
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        msg.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 80);
+      }
+    }
+    type();
+
+    // show love card after 0.5s
+    setTimeout(() => card.classList.add("show"), 500);
+
+    // chocolate rain animation
+    for (let i = 0; i < 25; i++) {
+    const drop = document.createElement("div");
+    drop.className = "choco-drop";
+    const chocolateEmojis = ["🍫", "🍬", "🍪"];
+    drop.innerHTML = chocolateEmojis[Math.floor(Math.random() * chocolateEmojis.length)];
+    drop.style.left = Math.random() * 100 + "vw";
+    drop.style.fontSize = (15 + Math.random() * 15) + "px"; // random size
+    drop.style.animationDuration = (4 + Math.random() * 3) + "s";
+    rain.appendChild(drop);
+    setTimeout(() => drop.remove(), 6000);
+}
+  });
+
+});
+
+function createChocolatePetals() {
+    const container = document.getElementById("choco-petals");
+    container.innerHTML = ""; // reset petals
+  
+// soft romantic petals
+    const petalEmojis = ["🌹", "💖", "💗", "🌸", "🌺"];
+ 
+
+    for (let i = 0; i < 25; i++) {
+        const petal = document.createElement("div");
+        petal.className = "choco-petal";
+        petal.innerHTML = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+        petal.style.left = Math.random() * 100 + "vw"; // random horizontal
+        petal.style.fontSize = (15 + Math.random() * 25) + "px"; // random size
+        petal.style.animationDuration = (5 + Math.random() * 5) + "s"; // random speed
+        container.appendChild(petal);
+
+        // remove after animation ends
+        setTimeout(() => petal.remove(), 8000);
+    }
+}
+
+// Call when page loads or when Chocolate button clicked
+window.addEventListener("load", () => {
+    createChocolatePetals();
+});
+
+// Optional: call again on chocolate button click for more effect
+document.getElementById("chocoBtn").addEventListener("click", () => {
+
+    // Generate floating petals
+    createChocolatePetals();
+
+    // Glow card
+    const chocoCard = document.querySelector(".choco-card");
+    chocoCard.classList.add("glow");
+    setTimeout(() => chocoCard.classList.remove("glow"), 4000);
+
+    // Optional: chocolate rain & typing message
+});
+</script>
+
+
+<script>
+    // first page suprise button//
+document.getElementById("surpriseBtn").addEventListener("click", (e) => {
+    e.preventDefault(); // prevent default jump
+    
+    const chocolateSection = document.getElementById("chocolate");
+
+    // Smooth scroll
+    chocolateSection.scrollIntoView({ behavior: "smooth" });
+
+    // Wait a little to let her scroll and then trigger chocolate fun
+    setTimeout(() => {
+        // Trigger chocolate rain & glow
+        const chocoBtn = document.getElementById("chocoBtn");
+        chocoBtn.click(); // simulates clicking the chocolate button automatically
+    }, 1000); // 1 second delay
+});
 </script>
 
 

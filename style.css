@@ -1,3 +1,8 @@
+
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +16,23 @@ body {
     line-height: 1.6;
 
 }
+
+#surpriseBtn {
+    background: #ff69b4;
+    color: #fff;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 0 25px rgba(255,105,180,0.6);
+    transition: 0.3s;
+}
+
+#surpriseBtn:hover {
+    background: #ffc0cb;
+    transform: scale(1.1);
+}
+
 
 /* Hero */
 .hero {
@@ -49,6 +71,126 @@ body {
 .btn:hover {
     background: #ffc0cb;
 }
+
+/* valentine page first*/
+
+.valentine-start {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(20,5,10,0.75), rgba(20,5,10,0.95)),
+        url("https://images.unsplash.com/photo-1518199266791-5375a83190b7");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.valentine-glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    padding: 60px 40px;
+    max-width: 700px;
+    box-shadow: 0 0 50px rgba(255,105,180,0.4);
+    animation: fadeUp 2s ease forwards;
+}
+
+.valentine-glass h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    color: #ffb6c1;
+    text-shadow: 0 0 20px rgba(255,182,193,0.8);
+}
+
+.valentine-sub {
+    margin-top: 25px;
+    font-size: 1.2rem;
+    color: #ffd1dc;
+    line-height: 1.8;
+}
+
+.valentine-line {
+    margin: 25px 0;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #ffc0cb;
+}
+
+/* Mini Love Letter Glass Card */
+.love-card {
+    display: none;
+    margin: 40px auto;
+    max-width: 400px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    color: #ffd1dc;
+    font-size: 1.1rem;
+    animation: fadeUp 1.5s ease forwards;
+}
+
+/* Soft hearts */
+#soft-hearts {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.soft-heart {
+    position: absolute;
+    bottom: 0;
+    font-size: 18px;
+    animation: floatSoft 6s linear forwards;
+    opacity: 0.8;
+}
+
+@keyframes floatSoft {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+.start-btn {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    padding: 15px 40px;
+    box-shadow: 0 0 25px rgba(255,105,180,0.6);
+}
+
+.valentine-buttons {
+    margin-top: 35px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.outline-btn {
+    background: transparent;
+    border: 2px solid #ff69b4;
+    color: #ffb6c1;
+}
+
+.outline-btn:hover {
+    background: #ff69b4;
+    color: #000;
+}
+
+.hidden-love {
+    display: none;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    color: #ffd1dc;
+    animation: fadeUp 1.5s ease forwards;
+}
+
+
 
 /* Sections */
 .section {
@@ -396,6 +538,202 @@ body.glow {
 @keyframes confettiFall {
     0% { transform: translateY(0) rotate(0deg); opacity:1; }
     100% { transform: translateY(100vh) rotate(360deg); opacity:0; }
+}
+
+/* Chocolate day section */
+/* 🍫 Chocolate Day Section */
+.chocolate-section {
+    background: linear-gradient(
+        rgba(60, 30, 20, 0.50),
+        rgba(30, 15, 10, 0.3)
+    ),
+    url('photo6.jpeg');
+    background-size: cover;
+    color: #fff;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 20px;
+    border-radius: 20px;
+    
+}
+
+/* Container for petals/glow */
+#choco-petals {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* click goes through */
+    overflow: hidden;
+    z-index: 0; /* behind card */
+}
+
+/* Petal or glow element */
+.choco-petal {
+    position: absolute;
+    font-size: 20px;
+    opacity: 0.8;
+    animation: floatPetals 8s linear infinite;
+}
+
+/* Floating animation */
+@keyframes floatPetals {
+    0% { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0.6; }
+    50% { transform: translateY(-50vh) rotate(180deg) scale(1); opacity: 0.9; }
+    100% { transform: translateY(-100vh) rotate(360deg) scale(0.8); opacity: 0; }
+}
+
+
+/* Glass card */
+.choco-card {
+    background: rgba(255, 255, 255, );
+    backdrop-filter: blur(5px);
+    padding: 50px 30px;
+    border-radius: 30px;
+    border: 2px solid rgba(255,182,193,0.3);
+    box-shadow: 0 0 50px rgba(255,105,180,0.3);
+    max-width: 500px;
+    margin: auto;
+    font-size: 1.2rem;
+    line-height: 2;
+    color: #ffd1dc;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.choco-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 70px rgba(255,182,193,0.5);
+}
+
+.choco-card.glow {
+    box-shadow: 0 0 60px rgba(255, 182, 193, 0.1);
+    transform: scale(1.02);
+    transition: all 0.5s ease;
+}
+
+
+/* Button */
+.choco-btn {
+  padding: 14px 28px;
+  border-radius: 30px;
+  border: none;
+  background: #8b4513;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.choco-btn:active {
+  transform: scale(0.95);
+}
+
+/* Love Card */
+.choco-love-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: #3b1f1f;
+  color: #ffdada;
+  padding: 20px;
+  border-radius: 15px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 105, 135, 0.4);
+  opacity: 0;
+  transition: 0.5s ease;
+  z-index: 1000;
+}
+
+.choco-love-card {
+  display: none; /* hide initially */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: #3b1f1f;
+  color: #ffdada;
+  padding: 20px;
+  border-radius: 15px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(255, 105, 135, 0.4);
+  opacity: 0;
+  transition: 0.5s ease;
+  z-index: 1000;
+}
+
+.choco-love-card.show {
+  display: block; /* show when class added */
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+
+
+.choco-love-card.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+
+
+.hidden {
+  display: none;
+}
+
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+
+/* Message typing */
+.choco-message {
+    margin-top: 25px;
+    font-size: 1.3rem;
+    color: #ffccb3;
+    min-height: 40px;
+}
+
+/* Chocolate rain */
+#choco-rain {
+  position: absolute; /* not fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.chocolate-section {
+  position: relative;
+}
+
+
+.choco-drop {
+    position: absolute;
+    top: -20px;
+    font-size: 20px;
+    animation: chocoFall 4s linear forwards;
+}
+
+@keyframes chocoFall {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
 }
 
 
