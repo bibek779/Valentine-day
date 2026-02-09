@@ -29,8 +29,8 @@
     <button onclick="openLoveIntro()" class="btn outline-btn">
         Why This Week Is Special 💌
     </button>
-    <a href="#chocolate" id="surpriseBtn" class="btn">💝 Open you Suprise Budu 💝</a>
-
+    <a href="#chocolate" id="surpriseBtn" class="btn">💝 Open your 3 daySuprise Budu 💝</a>
+    <a href="#teddy" id="surpriseBtn"class="btn">🧸 Open you new suprise Budu 🧸</a>
 </div>
 
 <!-- Mini Love Letter -->
@@ -242,6 +242,64 @@ because it’s filled with you. 🍫💖
   </p>
 </div>
 </section>
+
+
+
+<!-- 🧸 Teddy Day Section -->
+<section id="teddy" class="section teddy-section">
+
+  <div class="teddy-overlay"></div>
+
+  <div class="teddy-content">
+
+    <h1 class="chapter-title">🧸 Happy Teddy Day Budu🧸</h1>
+
+    <p class="teddy-line first show">
+  When you are tired…<br>
+  when you miss me…
+</p>
+
+<p class="teddy-line second">
+  this teddy holds my hugs 🤍
+</p>
+
+<!-- after button click music-->
+ <audio id="hugMusic" loop>
+    <source src="hug.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+    <div class="teddy-hero">
+  <img src="teddy.jpeg" class="teddy-img" id="teddyImg">
+</div>
+
+
+   <button id="teddyBtn" class="hug-btn">
+  Tap to Feel My Hug 🧸🤍
+</button>
+
+
+<p id="teddyCute" class="teddy-msg">
+  *This teddy missed you…* 🥺
+</p>
+
+<p id="teddyDeep" class="teddy-msg deep">
+  Budu 🤍<br><br>
+  Whenever you feel lonely,<br>
+  tired, or miss me…<br><br>
+  hug this teddy tightly 🧸  
+  because inside it —  
+  are my arms, my care,  
+  and my heart holding you 💞
+</p>
+
+
+  </div>
+
+  <div id="teddy-petals"></div>
+
+</section>
+
 
 
 
@@ -495,6 +553,76 @@ document.getElementById("surpriseBtn").addEventListener("click", (e) => {
         chocoBtn.click(); // simulates clicking the chocolate button automatically
     }, 1000); // 1 second delay
 });
+</script>
+
+
+
+
+
+<script>
+const teddyBtn = document.getElementById("teddyBtn");
+const teddySection = document.querySelector(".teddy-section");
+const teddyImg = document.getElementById("teddyImg");
+const teddySecondLine = document.querySelector(".teddy-line.second");
+const teddyCute = document.getElementById("teddyCute");
+const teddyDeep = document.getElementById("teddyDeep");
+const teddyPetals = document.getElementById("teddy-petals");
+const emojis = ["🤍","💖","💗","🧸"];
+
+function createTeddyPetals() {
+  teddyPetals.innerHTML = "";
+  for (let i = 0; i < 30; i++) {
+    const petal = document.createElement("div");
+    petal.className = "teddy-petal";
+    petal.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.fontSize = (16 + Math.random() * 20) + "px";
+    petal.style.animationDuration = (6 + Math.random() * 3) + "s";
+    teddyPetals.appendChild(petal);
+    setTimeout(() => petal.remove(), 9000);
+  }
+}
+
+
+teddyBtn.addEventListener("click", () => {
+  teddySection.classList.add("hug-glow");
+  teddyImg.classList.add("show", "hug");
+  teddySecondLine.classList.add("show");
+  teddyCute.style.display = "block";
+
+  setTimeout(() => {
+    teddyDeep.style.display = "block";
+  }, 1200);
+
+  createTeddyPetals();
+});
+
+document.getElementById('teddyBtn').addEventListener('click', function() {
+    const hugMusic = document.getElementById('hugMusic');
+
+    // start music
+    hugMusic.volume = 0;
+    hugMusic.play();
+
+    // smooth fade-in
+    let vol = 0;
+    const fadeIn = setInterval(() => {
+        if(vol < 0.6){ 
+            vol += 0.01;
+            hugMusic.volume = vol;
+        } else {
+            clearInterval(fadeIn);
+        }
+    }, 200);
+
+    // Teddy glow effect
+    const teddySection = document.getElementById('teddy');
+    teddySection.classList.add('hug-glow');
+    
+    // remove glow after some time (optional)
+    setTimeout(() => teddySection.classList.remove('hug-glow'), 3000);
+});
+
 </script>
 
 
