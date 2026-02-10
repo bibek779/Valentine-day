@@ -992,6 +992,109 @@ body.glow {
   100% { box-shadow: 0 0 30px rgba(255,255,255,0.2); }
 }
 
+/* promise-day section */
+.promise-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #3a1c2e, #12070c);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* background photo (hidden first) */
+.photo-bg {
+  position: absolute;
+  inset: 0;
+  background: url("photopromise.jpeg") center/cover no-repeat;
+  opacity: 0;
+  transition: opacity 2s ease;
+  z-index: 0;
+}
+
+
+.photo-bg.show {
+  opacity: 1;
+}
+
+/* promise box */
+.promise-box {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 650px;
+  padding: 50px 35px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  box-shadow: 0 0 60px rgba(255,182,193,0.35);
+}
+
+.promise-title {
+  color: #ffc1cc;
+  font-size: 2.6rem;
+  text-shadow: 0 0 25px rgba(255,182,193,0.8);
+}
+
+.promise-title small {
+  font-size: 1.4rem;
+}
+
+.promise-text p {
+  margin: 22px 0;
+  font-size: 1.1rem;
+  color: #ffeef2;
+  opacity: 0;
+  animation: fadeUp 1.4s forwards;
+}
+
+.promise-text p:nth-child(1){ animation-delay: .5s }
+.promise-text p:nth-child(2){ animation-delay: 1.3s }
+.promise-text p:nth-child(3){ animation-delay: 2.1s }
+.promise-text p:nth-child(4){ animation-delay: 2.9s }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.highlight {
+  color: #ffd1dc;
+  font-weight: 600;
+}
+
+.promise-btn {
+  margin-top: 35px;
+  padding: 16px 45px;
+  border-radius: 40px;
+  border: none;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff9eb5, #ff6f91);
+  box-shadow: 0 0 35px rgba(255,105,135,0.8);
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 20px rgba(255,105,135,.6); }
+  50% { box-shadow: 0 0 45px rgba(255,105,135,1); }
+  100% { box-shadow: 0 0 20px rgba(255,105,135,.6); }
+}
+
+/* hearts */
+.floating-hearts span {
+  position: absolute;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-120vh); opacity: 0; }
+}
+
 
 
 /* Footer */

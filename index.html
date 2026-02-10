@@ -301,6 +301,39 @@ because it’s filled with you. 🍫💖
 </section>
 
 
+<!--promise-day section-->
+<section class="promise-section">
+  <!-- hidden background image -->
+  <div class="photo-bg" id="photoBg"></div>
+
+  <div class="promise-box">
+    <h1 class="promise-title">
+      Happy Promise Day Budu❤️ <br>
+      <small>For You, My Budu</small>
+    </h1>
+
+    <div class="promise-text">
+      <p>I promise to choose you,<br>even on the days when life feels heavy.</p>
+      <p>I promise to listen,<br>not just to your words, but to your silence too.</p>
+      <p>I promise to protect your heart,<br>like it is the most precious thing I own.</p>
+      <p class="highlight">
+        And most of all, my Budu…<br>
+        I promise you will never be alone.
+      </p>
+    </div>
+
+    <button class="promise-btn" id="promiseBtn">
+      I Promise You, Budu 💖
+    </button>
+  </div>
+
+  <div class="floating-hearts" id="floatingHearts"></div>
+
+  <!-- music -->
+  <audio id="promiseMusic" src="hug.mp3"></audio>
+</section>
+
+
 
 
     <!-- Footer -->
@@ -623,6 +656,35 @@ document.getElementById('teddyBtn').addEventListener('click', function() {
     setTimeout(() => teddySection.classList.remove('hug-glow'), 3000);
 });
 
+</script>
+
+
+
+<script>
+document.getElementById("promiseBtn").addEventListener("click", () => {
+
+  // show background photo
+  document.getElementById("photoBg").classList.add("show");
+
+  // play music
+  const music = document.getElementById("promiseMusic");
+  music.volume = 0.6;
+  music.play();
+
+  // floating hearts
+  const box = document.getElementById("floatingHearts");
+  const hearts = ["❤️","💖","🫶","✨"];
+
+  for(let i=0;i<35;i++){
+    const h = document.createElement("span");
+    h.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
+    h.style.left = Math.random()*100 + "vw";
+    h.style.fontSize = 18 + Math.random()*22 + "px";
+    h.style.animationDuration = 5 + Math.random()*5 + "s";
+    box.appendChild(h);
+    setTimeout(()=>h.remove(),9000);
+  }
+});
 </script>
 
 
