@@ -993,7 +993,7 @@ body.glow {
 }
 
 /* promise-day section */
-.promise-section {
+.promise{
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -1027,15 +1027,15 @@ body.glow {
   max-width: 650px;
   padding: 50px 35px;
   background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(8px);
   border-radius: 25px;
   box-shadow: 0 0 60px rgba(255,182,193,0.35);
 }
 
 .promise-title {
-  color: #ffc1cc;
+  color: #eb99a8;
   font-size: 2.6rem;
-  text-shadow: 0 0 25px rgba(255,182,193,0.8);
+  text-shadow: 0 0 25px rgba(180, 87, 101, 0.8);
 }
 
 .promise-title small {
@@ -1045,7 +1045,7 @@ body.glow {
 .promise-text p {
   margin: 22px 0;
   font-size: 1.1rem;
-  color: #ffeef2;
+  color: #e4093c;
   opacity: 0;
   animation: fadeUp 1.4s forwards;
 }

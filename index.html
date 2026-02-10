@@ -29,8 +29,10 @@
     <button onclick="openLoveIntro()" class="btn outline-btn">
         Why This Week Is Special 💌
     </button>
-    <a href="#chocolate" id="surpriseBtn" class="btn">💝 Open your 3 daySuprise Budu 💝</a>
-    <a href="#teddy" id="surpriseBtn"class="btn">🧸 Open you new suprise Budu 🧸</a>
+     <a href="#chocolate" id="chocoBtnLink" class="btn">💝 Open your 3 day Surprise Budu 💝</a>
+    <a href="#teddy" id="teddyBtnLink" class="btn">🧸 Open your Teddy Surprise Budu 🧸</a>
+    <a href="#promise" id="promiseBtnLink" class="btn">💖 Open your Promise Surprise Budu 💖</a>
+    
 </div>
 
 <!-- Mini Love Letter -->
@@ -302,7 +304,7 @@ because it’s filled with you. 🍫💖
 
 
 <!--promise-day section-->
-<section class="promise-section">
+<section id="promise" class="promise">
   <!-- hidden background image -->
   <div class="photo-bg" id="photoBg"></div>
 
@@ -323,7 +325,7 @@ because it’s filled with you. 🍫💖
     </div>
 
     <button class="promise-btn" id="promiseBtn">
-      I Promise You, Budu 💖
+      would you Promise, Budu 💖
     </button>
   </div>
 
@@ -616,6 +618,23 @@ function createTeddyPetals() {
   }
 }
 
+function triggerPromiseDay() {
+    document.getElementById("photoBg").classList.add("show");
+    const music = document.getElementById("promiseMusic");
+    music.volume = 0.6;
+    music.play();
+    const box = document.getElementById("floatingHearts");
+    const hearts = ["🌹","💖","🫶","✨"];
+    for(let i=0;i<35;i++){
+        const h = document.createElement("span");
+        h.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
+        h.style.left = Math.random()*100 + "vw";
+        h.style.fontSize = 18 + Math.random()*22 + "px";
+        h.style.animationDuration = 5 + Math.random()*5 + "s";
+        box.appendChild(h);
+        setTimeout(()=>h.remove(),9000);
+    }
+}
 
 teddyBtn.addEventListener("click", () => {
   teddySection.classList.add("hug-glow");
@@ -673,7 +692,7 @@ document.getElementById("promiseBtn").addEventListener("click", () => {
 
   // floating hearts
   const box = document.getElementById("floatingHearts");
-  const hearts = ["❤️","💖","🫶","✨"];
+  const hearts = ["🌹","💖","🫶","✨"];
 
   for(let i=0;i<35;i++){
     const h = document.createElement("span");
@@ -685,6 +704,31 @@ document.getElementById("promiseBtn").addEventListener("click", () => {
     setTimeout(()=>h.remove(),9000);
   }
 });
+
+function triggerPromiseDay() {
+    // show background photo
+    document.getElementById("photoBg").classList.add("show");
+
+    // play music
+    const music = document.getElementById("promiseMusic");
+    music.volume = 0.6;
+    music.play();
+
+    // floating hearts
+    const box = document.getElementById("floatingHearts");
+    const hearts = ["🌹","💖","🫶","✨"];
+
+    for(let i=0;i<35;i++){
+        const h = document.createElement("span");
+        h.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
+        h.style.left = Math.random()*100 + "vw";
+        h.style.fontSize = 18 + Math.random()*22 + "px";
+        h.style.animationDuration = 5 + Math.random()*5 + "s";
+        box.appendChild(h);
+        setTimeout(()=>h.remove(),9000);
+    }
+}
+
 </script>
 
 
