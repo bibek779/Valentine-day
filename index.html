@@ -29,9 +29,11 @@
     <button onclick="openLoveIntro()" class="btn outline-btn">
         Why This Week Is Special 💌
     </button>
-     <a href="#chocolate" id="chocoBtnLink" class="btn">💝 Open your 3 day Surprise Budu 💝</a>
-    <a href="#teddy" id="teddyBtnLink" class="btn">🧸 Open your Teddy Surprise Budu 🧸</a>
-    <a href="#promise" id="promiseBtnLink" class="btn">💖 Open your Promise Surprise Budu 💖</a>
+    <a href="#hug" id="hugBtnLink" class="btn">💖 Open Your New Surprise Budu 💖</a>
+     <a href="#chocolate" id="chocoBtnLink" class="btn">💝 Your Chocolate day Surprise Budu 💝</a>
+    <a href="#teddy" id="teddyBtnLink" class="btn">🧸 Your Teddy day Surprise Budu 🧸</a>
+    <a href="#promise" id="promiseBtnLink" class="btn">💖 Your Promise day Surprise Budu 💖</a>
+    
     
 </div>
 
@@ -336,6 +338,24 @@ because it’s filled with you. 🍫💖
 </section>
 
 
+
+<!-- =================  HUG SECTION ================= -->
+
+<section id="hug" class="hug-section">
+
+  <div class="hug-overlay"></div>
+
+  <div class="hug-content">
+    <h2>Happy Hug Day, Budu 🫂💖</h2>
+    <p id="hugText"></p>
+    <button id="hugBtn">Come Into My Arms</button>
+  </div>
+
+  <img src="me.jpeg" id="hugTeddy" class="hug-teddy">
+
+  <audio id="hugMusic" src="hug-music.mp3"></audio>
+
+</section>
 
 
     <!-- Footer -->
@@ -732,6 +752,68 @@ function triggerPromiseDay() {
 </script>
 
 
+<script>
+    const hugBtn = document.getElementById("hugBtn");
+const hugText = document.getElementById("hugText");
+const hugMusic = document.getElementById("hugMusic");
+const hugTeddy = document.getElementById("hugTeddy");
+const hugSection = document.querySelector(".hug-section");
+
+if(hugBtn){
+
+  const message = "Budu... come here. Let me hold you tighter than ever before. Whenever the world feels heavy, I will be your safest place. This hug is my forever promise to protect you, comfort you, and never let you feel alone. 🫂🤍";
+
+  hugBtn.addEventListener("click", () => {
+
+    hugMusic.play();
+
+    // Activate hug mode
+    hugSection.classList.add("hug-active");
+    hugSection.classList.add("shake");
+
+    setTimeout(()=>{
+      hugSection.classList.remove("shake");
+    },500);
+
+    // Golden flash
+    const flash = document.createElement("div");
+    flash.className="flash";
+    hugSection.appendChild(flash);
+    setTimeout(()=>flash.remove(),1000);
+
+    // Teddy appears
+    hugTeddy.classList.add("show");
+
+    // Typing effect
+    let i=0;
+    hugText.innerHTML="";
+
+    const typing=setInterval(()=>{
+      hugText.innerHTML+=message.charAt(i);
+      i++;
+      if(i>=message.length){
+        clearInterval(typing);
+      }
+    },40);
+
+    // Hearts explosion
+    for(let i=0;i<50;i++){
+      const heart=document.createElement("div");
+      heart.className="hug-heart";
+      heart.innerHTML="🤍";
+      heart.style.left=Math.random()*100+"vw";
+      heart.style.fontSize=(16+Math.random()*25)+"px";
+      heart.style.animationDuration=(4+Math.random()*3)+"s";
+      document.body.appendChild(heart);
+      setTimeout(()=>heart.remove(),6000);
+    }
+
+  });
+
+}
+
+
+</script>
 
 </body>
 </html>
