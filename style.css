@@ -1234,6 +1234,148 @@ body.glow {
 }
 
 
+/* ---------- kiss Section Base ---------- */
+.kiss-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background: linear-gradient(to bottom, #2b0f1a, #1a1a1a);
+  color: #fff;
+  overflow: hidden;
+  padding: 80px 20px;
+}
+
+.kiss-overlay {
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(43,15,26,0.7);
+  z-index:0;
+}
+
+.kiss-content {
+  position: relative;
+  z-index:2;
+}
+
+.kiss-popup {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 85%;
+    max-width: 380px;
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px);
+    padding: 30px;
+    border-radius: 25px;
+    border: 2px solid #ff69b4;
+    text-align: center;
+    z-index: 100000 !important; /* Forces it to the absolute front */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 50px rgba(255, 105, 180, 0.4);
+}
+
+.kiss-popup.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+}
+
+
+.kiss-photo {
+    width: 60%;
+    height: auto;
+    max-height: 380px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    border: 3px solid #ffb6c1;
+}
+.kiss-hearts span {
+  position:absolute;
+  bottom: -50px;
+  font-size:24px;
+  animation:floatHearts 5s linear infinite;
+}
+
+@keyframes floatHearts {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+.btn, .music-btn, .close-btn {
+  background:#ff69b4;
+  border:none;
+  padding:12px 20px;
+  margin:10px;
+  color:#fff;
+  font-size:16px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.btn:hover, .music-btn:hover, .close-btn:hover {
+  transform: scale(1.1);
+  background:#ff85c1;
+}
+
+.kiss-popup .close-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 40px;
+    height: 40px;
+    background: #ff69b4 !important;
+    color: white !important;
+    border: 2px solid white;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100001;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    padding: 0;
+    line-height: 1;
+}
+
+/* Ensure the popup itself has relative positioning so the button knows where 'top-right' is */
+.kiss-popup {
+    position: fixed; /* Keep this as fixed */
+    /* ... keep your other styles ... */
+}
+
+.music-btn {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:999;
+}
+
+@media (max-width:768px) {
+  .kiss-popup { padding:20px; }
+  .kiss-photo { max-width:100%; }
+  .btn { font-size:14px; padding:10px 16px; }
+}
+
+@media (max-width:480px) {
+  .kiss-popup { width:95%; padding:15px; }
+  .kiss-popup h3 { font-size:18px; }
+  .kiss-popup p { font-size:14px; }
+  .btn { font-size:13px; padding:8px 12px; }
+  .music-btn { bottom:15px; right:15px; }
+}
 /* Footer */
 footer {
     background: #000;

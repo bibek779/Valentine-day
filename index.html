@@ -29,7 +29,7 @@
     <button onclick="openLoveIntro()" class="btn outline-btn">
         Why This Week Is Special 💌
     </button>
-    <a href="#hug" id="hugBtnLink" class="btn">💖 Open Your New Surprise Budu 💖</a>
+    <a href="#kiss" id="kissBtnLink" class="btn">💖 Open Your New Surprise Budu 💖</a>
      <a href="#chocolate" id="chocoBtnLink" class="btn">💝 Your Chocolate day Surprise Budu 💝</a>
     <a href="#teddy" id="teddyBtnLink" class="btn">🧸 Your Teddy day Surprise Budu 🧸</a>
     <a href="#promise" id="promiseBtnLink" class="btn">💖 Your Promise day Surprise Budu 💖</a>
@@ -357,13 +357,39 @@ because it’s filled with you. 🍫💖
 
 </section>
 
+<!-- =================  Kiss SECTION ================= -->
+<section id="kiss"class="kiss-section">
+    <div class="kiss-overlay"></div>
 
-    <!-- Footer -->
-    <footer>
-        <p>With all my love,<br><strong>Yours, Bibek ❤️</strong></p>
-    </footer>
+    <div class="kiss-content">
+        <h2>💋 Happy Kiss Day budu 💋</h2>
+        <p>Tonight... this kiss is only yours.</p>
+        <button id="kissBtn" class="btn">Click here and close your eyes and feel this kiss budu 💖</button>
+        <img src="kiss.jpeg" alt="My Love" class="kiss-photo">
+    <h3>💋 This Kiss is Forever 💖</h3>
+    <p>You are my heartbeat, my peace, my forever.</p>
+    <audio id="heartbeatSound" src="https://www.soundjay.com/heartbeat/sounds/heartbeat-01.mp3"></audio>
+    </div>
 
+    <div class="kiss-hearts"></div>
 
+    <audio id="kissBgMusic" loop>
+        <source src="love.mp3" type="audio/mp3">
+    </audio>
+    <button id="musicToggle" class="music-btn">🎵</button>
+</section>
+
+<footer>
+    <p>With all my love,<br><strong>Yours, Bibek ❤️</strong></p>
+</footer>
+
+<div id="kissPopup" class="kiss-popup">
+    <button class="close-btn" id="closeKiss">kiss me</button>
+    <img src="withbebu.jpeg" alt="My Love" class="kiss-photo">
+    <h3>💋 This Kiss is Forever 💖</h3>
+    <p>You are my heartbeat, my peace, my forever.</p>
+    <audio id="heartbeatSound" src="https://www.soundjay.com/heartbeat/sounds/heartbeat-01.mp3"></audio>
+</div>
 
    <script>
 function openLoveIntro() {
@@ -811,8 +837,58 @@ if(hugBtn){
   });
 
 }
+</script>
 
+<!-- =================  kiss-section JS ================= -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const kissBtn = document.getElementById("kissBtn");
+    const popup = document.getElementById("kissPopup");
+    const closeBtn = document.getElementById("closeKiss");
+    const heartsContainer = document.querySelector(".kiss-hearts");
+    const heartbeat = document.getElementById("heartbeatSound");
+    const music = document.getElementById("kissBgMusic");
+    const musicToggle = document.getElementById("musicToggle");
 
+    // 1. Floating Kiss Hearts Animation
+    setInterval(() => {
+        const heart = document.createElement("span");
+        heart.innerHTML = "💋";
+        heart.style.position = "absolute";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.bottom = "-50px";
+        heart.style.fontSize = (20 + Math.random() * 20) + "px";
+        heart.style.animation = `floatHearts ${4 + Math.random() * 3}s linear forwards`;
+        heartsContainer.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+    }, 600);
+
+    // 2. Show Popup Action
+    kissBtn.addEventListener("click", () => {
+        popup.classList.add("show");
+        // Play sounds (handling browser auto-play restrictions)
+        heartbeat.play().catch(() => console.log("Sound wait for click"));
+        music.play().catch(() => console.log("Music wait for click"));
+    });
+
+    // 3. Close Popup Action
+    closeBtn.addEventListener("click", () => {
+        popup.classList.remove("show");
+        heartbeat.pause();
+        heartbeat.currentTime = 0;
+    });
+
+    // 4. Music Toggle
+    musicToggle.addEventListener("click", () => {
+        if (music.paused) {
+            music.play();
+            musicToggle.innerHTML = "🔊";
+        } else {
+            music.pause();
+            musicToggle.innerHTML = "🎵";
+        }
+    });
+});
 </script>
 
 </body>
