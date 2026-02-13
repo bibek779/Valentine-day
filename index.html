@@ -8,50 +8,86 @@
 </head>
 <body>
 
-    <!-- Valentine day start -->
-   <section id="valentine-start" class="valentine-start">
-    <div class="valentine-glass">
-        <h1>💖 Valentine Week Begins 💖</h1>
+    <section id="valentine-finale" class="valentine-main-hero">
+    <div class="finale-content">
+        <h1 class="glow-text">Happy Valentine’s Day Budu❤️</h1>
+        <p class="typewriter-intro" id="intro-text-finale"></p>
+        
+        <div class="moments-container">
+            <h2 class="section-title">Our Real Life Moments</h2>
+            
+            <div class="moment-row">
+                <div class="moment-image" style="background-image: url('meet1.jpeg');"></div>
+                <div class="moment-caption">
+                    <h3>The Day Pixels Turned Real</h3>
+                    <p>I finally got to hold the hand I've been seeing through a screen. The distance felt like zero in that second.</p>
+                </div>
 
-        <p class="valentine-sub">
-            Budu,<br>
-            Today is not just another day…<br>
-            it’s the beginning of our Valentine journey ❤️
-        </p>
+                <section class="video-memory-section">
+    <h2 class="section-title">Sounds of Our Journey 🔊</h2>
+    <p class="video-hint">Click a memory to hear our voices and the world around us...</p>
 
-        <p class="valentine-line">
-            One week.<br>
-            Many feelings.<br>
-            Only you.
-        </p>
+    <div class="video-grid">
+        <div class="video-card" onclick="playWithSound('walkVdo', this)">
+            <video id="walkVdo" class="memory-video" playsinline>
+                <source src="walking.mp4" type="video/mp4">
+            </video>
+            <div class="video-ui-overlay">
+                <div class="play-circle">
+                    <span class="icon">▶</span>
+                </div>
+                <p>Play with Sound</p>
+            </div>
+        </div>
 
-        <div class="valentine-buttons">
-    <button onclick="openLoveIntro()" class="btn outline-btn">
-        Why This Week Is Special 💌
-    </button>
-    <a href="#kiss" id="kissBtnLink" class="btn">💖 Open Your New Surprise Budu 💖</a>
-     <a href="#chocolate" id="chocoBtnLink" class="btn">💝 Your Chocolate day Surprise Budu 💝</a>
-    <a href="#teddy" id="teddyBtnLink" class="btn">🧸 Your Teddy day Surprise Budu 🧸</a>
-    <a href="#promise" id="promiseBtnLink" class="btn">💖 Your Promise day Surprise Budu 💖</a>
-    
-    
-</div>
+        <div class="video-card" onclick="playWithSound('holdVdo', this)">
+            <video id="holdVdo" class="memory-video" playsinline>
+                <source src="holding.mp4" type="video/mp4">
+            </video>
+            <div class="video-ui-overlay">
+                <div class="play-circle">
+                    <span class="icon">▶</span>
+                </div>
+                <p>Hear the Moment</p>
+            </div>
+        </div>
+    </div>
+</section>
+            </div>
 
-<!-- Mini Love Letter -->
-<div id="loveCard" class="love-card">
-    <p>
-        Budu ❤️<br><br>
-        Valentine week is not about days,<br>
-        it’s about feelings, moments,<br>
-        and choosing each other — again & again 💖
-    </p>
-</div>
+            <div class="moment-row reverse">
+                <div class="moment-image" style="background-image: url('meet2.jpeg');"></div>
+                <div class="moment-caption">
+                    <h3>Every Laugh Shared</h3>
+                    <p>No more "I miss you" texts for a few hours—just your real smile right in front of me. Pure bliss.</p>
+                </div>
+            </div>
+        </div>
 
-<!-- Hearts container -->
-<div id="soft-hearts"></div>
-
+        <div class="final-checkpoint">
+            <p>Scroll to the very end for my heart...</p>
+        </div>
+    </div>
 </section>
 
+<div id="loveLetterModal" class="letter-overlay">
+    <div class="letter-card">
+        <div class="letter-seal">❤️</div>
+        <div class="letter-content">
+            <h2>To My Dearest Budu,</h2>
+            <div class="letter-body">
+                <p>My love, as I sat down to build this for you, every photo I looked at reminded me of one thing: how incredibly lucky I am to have you.</p>
+                <p>Distance has been a part of our story, but it has never been our whole story. It only made our hugs tighter, our meet-ups more precious, and our love more resilient.</p>
+                <p>I remember the nervousness of our first meet, the way your eyes sparkled in person, and the heavy feeling in my heart when it was time to say bye. But more than that, I remember how "home" felt when I was standing next to you.</p>
+                <p>Thank you for choosing me every single day, for being my peace in the chaos, and for making my world so much more beautiful just by being in it.</p>
+                <p><strong>Happy Valentine's Day, Budu. I love you more than words or code could ever express.</strong></p>
+            </div>
+            <button class="close-letter" onclick="closeLetter()">I Love You Forever ❤️</button>
+        </div>
+    </div>
+</div>
+
+    
 
 
     <!-- Hero Section -->
@@ -891,5 +927,67 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+
+<script>
+    // Function to handle the Valentine Section Typing
+function startValentineTyping() {
+    const text = "Today is for us, Budu. A celebration of every mile we crossed...";
+    let i = 0;
+    const target = document.getElementById("intro-text-finale");
+    
+    function type() {
+        if (i < text.length) {
+            target.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, 70);
+        }
+    }
+    type();
+}
+
+// Detection for the Love Letter Pop-up
+let hasShownLetter = false;
+window.addEventListener('scroll', () => {
+    // If user scrolls near the bottom of the page
+    if (!hasShownLetter && (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+        document.getElementById('loveLetterModal').classList.add('show');
+        hasShownLetter = true;
+    }
+});
+
+function closeLetter() {
+    document.getElementById('loveLetterModal').classList.remove('show');
+}
+
+// Call typing when page loads
+window.addEventListener('load', startValentineTyping);
+
+function playWithSound(id, element) {
+    const video = document.getElementById(id);
+    
+    // 1. Pause all other videos first
+    document.querySelectorAll('video').forEach(v => {
+        if(v.id !== id) {
+            v.pause();
+            v.parentElement.classList.remove('is-playing');
+        }
+    });
+
+    // 2. Toggle current video
+    if (video.paused) {
+        video.muted = false; // This is the magic line that enables sound
+        video.play();
+        element.classList.add('is-playing');
+    } else {
+        video.pause();
+        element.classList.remove('is-playing');
+    }
+
+    // 3. Reset when it ends
+    video.onended = function() {
+        element.classList.remove('is-playing');
+    };
+}
+</script>
 </body>
 </html>

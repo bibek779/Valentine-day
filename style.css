@@ -72,6 +72,195 @@ body {
     background: #ffc0cb;
 }
 
+
+/* --- valentine day Section Styles --- */
+.valentine-main-hero {
+    padding: 100px 20px;
+    background: linear-gradient(to bottom, #1a1a1a, #000);
+    text-align: center;
+}
+
+.glow-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    color: #fff;
+    text-shadow: 0 0 20px #ff69b4, 0 0 40px #ff1493;
+    margin-bottom: 20px;
+}
+
+.typewriter-intro {
+    font-size: 1.2rem;
+    color: #ffd1dc;
+    margin-bottom: 50px;
+    min-height: 1.5em;
+}
+
+.moments-container { margin-top: 80px; }
+
+.moment-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 0;
+    flex-wrap: wrap;
+}
+
+.moment-row.reverse { flex-direction: row-reverse; }
+
+.moment-image {
+    width: 100%;
+    max-width: 450px;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(255,105,180,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.moment-caption {
+    max-width: 400px;
+    text-align: left;
+}
+
+.moment-caption h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #ff69b4;
+    margin-bottom: 15px;
+}
+
+/* --- Letter Modal --- */
+.letter-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.8s ease;
+    backdrop-filter: blur(10px);
+}
+
+.letter-overlay.show { opacity: 1; visibility: visible; }
+
+.letter-card {
+    background: #fff0f3;
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 15px;
+    position: relative;
+    transform: translateY(50px);
+    transition: 0.8s ease;
+}
+
+.letter-overlay.show .letter-card { transform: translateY(0); }
+
+.letter-content { color: #333; }
+.letter-content h2 { font-family: 'Playfair Display', serif; color: #d63031; margin-bottom: 20px; text-align: center;}
+
+.close-letter {
+    display: block;
+    margin: 20px auto 0;
+    background: #ff69b4;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- Video Memory Styles --- */
+.video-memory-section {
+    padding: 80px 20px;
+    background: #000;
+    text-align: center;
+}
+
+.video-hint {
+    color: #ffb6c1;
+    font-style: italic;
+    margin-bottom: 40px;
+}
+
+.video-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.video-card {
+    position: relative;
+    width: 350px;
+    height: 600px; /* Adjust based on your vdo aspect ratio */
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #111;
+    box-shadow: 0 15px 45px rgba(255, 105, 180, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.memory-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* UI Overlay before playing */
+.video-ui-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dim effect */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease;
+    z-index: 2;
+}
+
+.play-circle {
+    width: 70px;
+    height: 70px;
+    background: #ff69b4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    box-shadow: 0 0 20px #ff69b4;
+}
+
+.video-ui-overlay p {
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* When video is playing, hide the overlay */
+.video-card.is-playing .video-ui-overlay {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .video-card {
+        width: 100%;
+        height: 400px;
+    }
+}
+
+
 /* valentine page first*/
 
 .valentine-start {
